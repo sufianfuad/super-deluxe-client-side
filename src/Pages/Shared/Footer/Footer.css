@@ -1,0 +1,65 @@
+.footer-container{
+    padding: 50px 0;
+    background-color: #383838;
+    /* color:#414141 */
+}
+.footer-menu{
+
+}
+.footer-logo img{
+    width: 60px;
+    height: 60px;
+    border-radius: 100%;
+}
+.footer-title{
+    color:  #FBCF16;
+    margin-bottom: 20px;
+    font-size: 25px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+.book-btn{
+    font-size: 18px;
+    color: #fff;
+    background-color: #FF7F47;
+}
+.book-btn:hover{
+    color: #fff;
+    background-color: #262339;
+}
+.footer-menu{
+    padding: 50px 0; 
+}
+.footer-menu h4{
+    color: #f0f0f0;
+    padding-bottom: 5px;
+    text-align: left;
+}
+ul{
+    text-align: left;
+}
+ ul li{
+    list-style: none;
+    margin-bottom: 10px;
+}
+ ul li a{
+    text-decoration: none;
+}
+.menu{
+    color: #fff;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+}
+.menu:hover{
+    color: darkgray;
+}
+.footer-details{
+    text-align: left;
+}
+.footer-details p{
+    text-align: left;
+}
+.contact-info{
+    text-align: left;
+}

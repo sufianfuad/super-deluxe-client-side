@@ -1,0 +1,18 @@
+.banner-container{
+    background-color: #082032;
+}
+
+
+
+.banner-info{
+    text-align: left;
+    color: aliceblue;
+}
+
+/* .banner-img{
+    background-color: aliceblue;
+} */
+.banner-img img{
+    width: 80%;
+    height: 80vh;  
+}

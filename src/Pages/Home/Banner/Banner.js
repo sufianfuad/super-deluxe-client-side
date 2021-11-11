@@ -1,6 +1,6 @@
 import React from 'react';
 
-import banner from '../../../images/tableFan.png';
+// import banner from '../../../images/tableFan.png';
 
 //css
 import './Banner.css'
@@ -21,7 +21,7 @@ const Banner = () => {
                     </div>
                     <div className="col-lg-7 col-md-7 col-sm-12">
                         <div className="banner-img">
-                            <img src={banner} alt="" />
+                            <img src="https://www.kdk.com.my/wp-content/uploads/2019/09/menu-General-Fan.jpg" alt="" />
                         </div>
                     </div>
                 </div>

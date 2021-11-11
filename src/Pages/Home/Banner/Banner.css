@@ -1,9 +1,7 @@
 .banner-container{
     background-color: #082032;
+    height: 500px;
 }
-
-
-
 .banner-info{
     text-align: left;
     color: aliceblue;
@@ -13,6 +11,6 @@
     background-color: aliceblue;
 } */
 .banner-img img{
-    width: 80%;
-    height: 80vh;  
+    width: 100%;
+    height: 100%;  
 }

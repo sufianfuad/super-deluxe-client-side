@@ -1,3 +1,6 @@
 .register-container{
     padding: 50px 0;
 }
+.click-btn {
+    background-color: rgb(1, 223, 191);
+}

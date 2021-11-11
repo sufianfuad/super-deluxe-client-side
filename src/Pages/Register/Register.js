@@ -1,62 +1,126 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-
+import React, { useState } from 'react';
+import { Link, useHistory } from 'react-router-dom';
+//img
 import loginBanner from '../../images/login-banner/login.jpg';
+//useAuth hooks
+import useAuth from '../../hooks/useAuth';
 //css
 import './Register.css';
+import { Alert, Spinner } from 'react-bootstrap';
 const Register = () => {
+
+    const [loginData, setLoginData] = useState({});
+
+    const { user, registerUser, isLoading, authError } = useAuth();
+    const history = useHistory();
+
+    const handleOnBlur = (e) => {
+        const field = e.target.name;
+        const value = e.target.value;
+        const newLoginUserData = { ...loginData };
+        newLoginUserData[field] = value;
+        console.log(newLoginUserData)
+        setLoginData(newLoginUserData)
+
+    }
+    const handleLoginSubmit = (e) => {
+        if (loginData?.password !== loginData?.password2) {
+            alert('Your password did not match');
+            return;
+        }
+        registerUser(loginData?.email, loginData?.password, loginData?.name, history);
+        e.preventDefault();
+    }
     return (
         <div className="register-container">
             <h2 className="text-center">Create Account</h2>
             <div className="container">
                 <div className="row d-flex align-items-center">
-                    <div className="col-md-6">
+                    <div className="col-lg-6 col-md-6 col-sm-12">
                         <div className="login-banner">
                             <img src={loginBanner} alt="" />
                         </div>
                     </div>
-                    <div className="col-md-6">
+                    {/* registration form */}
+                    <div className="col-lg-6 col-md-6 col-sm-12">
                         <div className="form-container">
-                            <form className="w-75 mx-auto">
-                                <div class="mb-3">
-                                    <label htmlFor="exampleInputEmail1" className="form-label fw-bold">Your Name</label>
-                                    <input
-                                        type="email"
-                                        className="form-control"
-                                        placeholder="Enter your Name" required />
-                                </div>
-                                <div class="mb-3">
-                                    <label htmlFor="exampleInputEmail1" className="form-label fw-bold">Your Email</label>
-                                    <input
-                                        type="email"
-                                        className="form-control"
-                                        placeholder="Enter your email" required />
-                                </div>
-                                <div className="mb-3">
-                                    <label htmlFor="formGroupExampleInput" className="form-label fw-bold">Your Password</label>
+                            {!isLoading &&
+                                <form
+                                    onSubmit={handleLoginSubmit}
+                                    className="w-75 mx-auto">
+                                    <div class="mb-3">
+                                        <label htmlFor="exampleInputEmail1" className="form-label fw-bold">Your Name</label>
+                                        <input
+                                            name="name"
+                                            onBlur={handleOnBlur}
+                                            className="form-control"
+                                            placeholder="Enter your email"
+                                            required
+                                        />
+                                    </div>
+                                    {/* === */}
+                                    <div class="mb-3">
+                                        <label htmlFor="exampleInputEmail1" className="form-label fw-bold">Your Email</label>
+                                        <input
+                                            name="email"
+                                            type="email"
+                                            onBlur={handleOnBlur}
+                                            className="form-control"
+                                            placeholder="Enter your email"
+                                            required
+                                        />
+                                    </div>
+                                    {/* === */}
+                                    <div className="mb-3">
+                                        <label htmlFor="formGroupExampleInput" className="form-label fw-bold">Your Password</label>
+                                        <input
+                                            type="password"
+                                            name="password"
+                                            onBlur={handleOnBlur}
+                                            className="form-control"
+                                            placeholder="password at least 6 digit"
+                                        />
+                                    </div>
+                                    <div className="mb-3">
+                                        <label htmlFor="formGroupExampleInput" className="form-label fw-bold">ReType Password</label>
+                                        <input
+                                            type="password"
+                                            name="password2"
+                                            onBlur={handleOnBlur}
+                                            className="form-control"
+                                            placeholder="Confirm Password"
+                                        />
+                                    </div>
 
-                                    <input
-                                        // onBlur={handlePassword}
-                                        type="password" className="form-control" placeholder="password at least 6 digit" />
-                                </div>
-                                <div className="mb-3">
-                                    <label htmlFor="formGroupExampleInput" className="form-label fw-bold">Your Password</label>
+                                    {/* == */}
+                                    <div>
+                                        <button
+                                            // onClick={handleLogIn}
+                                            type="submit" className="btn click-btn fw-bold btn-lg logIn-btn w-100">Register</button>
 
-                                    <input
-                                        // onBlur={handlePassword}
-                                        type="password" className="form-control" placeholder="Confirm Password" />
+                                    </div>
+                                    <Link
+                                        to="/register">
+                                        <a href="">Already Register? Login Please</a>
+                                        {/* <button type="text" className="btn btn-primary text-center">New In Super Deluxe? Create A Account</button> */}
+                                    </Link>
+                                </form>
+                            }
+                            {
+                                isLoading && <div className="text-center">
+                                    <Spinner animation="border" />
                                 </div>
-                                <div>
-                                    <button
-                                        // onClick={handleLogIn}
-                                        type="submit" className="btn btn-primary fw-bold btn-lg logIn-btn w-100">Register</button>
-
-                                </div>
-                                <p className="text-center">Already have A Account</p>
-                                <Link to="/login">
-                                    <button className="btn btn-primary text-center">Login</button>
-                                </Link>
-                            </form>
+                            }
+                            {
+                                user?.email && <Alert variant="success">
+                                    Successfully Create Your Account
+                                </Alert>
+                            }
+                            {
+                                authError && <Alert variant="danger">
+                                    {authError}
+                                </Alert>
+                            }
 
                         </div>
                     </div>

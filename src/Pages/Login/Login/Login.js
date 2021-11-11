@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { Alert, Spinner } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
-//use Firebase import
-import useFirebase from '../../../hooks/useFirebase';
+import { useLocation, useHistory } from 'react-router-dom';
+//use Auth import
+import useAuth from '../../../hooks/useAuth';
 //image 
 import loginBanner from '../../../images/login-banner/login.jpg';
 //==
@@ -11,11 +13,29 @@ import loginBanner from '../../../images/login-banner/login.jpg';
 import './Login.css';
 
 const Login = () => {
-    const { user, signInUsingGoogle } = useFirebase();
+    const [loginData, setLoginData] = useState({});
+
+    const { user, loginInUser, isLoading, authError, signInUsingGoogle } = useAuth();
+
+    const location = useLocation();
+    const history = useHistory();
+
+    const handleOnChange = (e) => {
+        const field = e.target.name;
+        const value = e.target.value;
+        const newLoginUserData = { ...loginData };
+        newLoginUserData[field] = value;
+        setLoginData(newLoginUserData)
+
+    }
+    const handleLoginSubmit = (e) => {
+        loginInUser(loginData?.email, loginData?.password, location, history)
+        e.preventDefault()
+    }
 
     // handle event for Google
     const handleGoogleLogin = () => {
-        signInUsingGoogle();
+        signInUsingGoogle(location, history);
     }
     return (
         <div className="login-container">
@@ -29,30 +49,55 @@ const Login = () => {
                     </div>
                     <div className="col-md-6">
                         <div className="form-container">
-                            <form className="w-75 mx-auto">
+                            <form
+                                onSubmit={handleLoginSubmit}
+                                className="w-75 mx-auto">
                                 <div class="mb-3">
                                     <label htmlFor="exampleInputEmail1" className="form-label fw-bold">Email address</label>
                                     <input
-                                        type="email"
+                                        name="email"
+                                        onBlur={handleOnChange}
                                         className="form-control"
-                                        placeholder="Enter your email" required />
+                                        placeholder="Enter your email"
+                                        required
+                                    />
                                 </div>
                                 <div className="mb-3">
                                     <label htmlFor="formGroupExampleInput" className="form-label fw-bold">Your Password</label>
-
                                     <input
-                                        // onBlur={handlePassword}
-                                        type="text" className="form-control" placeholder="password at least 6 digit" required />
+                                        type="password"
+                                        name="password"
+                                        onBlur={handleOnChange}
+                                        className="form-control"
+                                        placeholder="password at least 6 digit"
+                                    />
                                 </div>
                                 <div>
                                     <button
-                                        // onClick={handleLogIn}
-                                        type="submit" className="btn btn-primary fw-bold btn-lg logIn-btn w-100">LogIn</button>
+                                        type="submit"
+                                        className="btn click-btn fw-bold btn-lg logIn-btn w-100">LogIn</button>
                                 </div>
-                                <p className="text-center">New In Super Deluxe? Create A Account</p>
-                                <Link to="/register">
-                                    <button className="btn btn-primary text-center">Register</button>
+                                <Link
+                                    to="/register"
+                                >
+                                    <a href="">New In Super Deluxe? Create A Account</a>
+                                    {/* <button type="text" className="btn btn-primary text-center">New In Super Deluxe? Create A Account</button> */}
                                 </Link>
+                                {
+                                    isLoading && <div className="text-center">
+                                        <Spinner animation="border" />
+                                    </div>
+                                }
+                                {
+                                    user?.email && <Alert variant="success">
+                                        Login Successfully
+                                    </Alert>
+                                }
+                                {
+                                    authError && <Alert variant="danger">
+                                        {authError}
+                                    </Alert>
+                                }
                             </form>
 
                             <p className="text-center py-3">---------------------</p>
@@ -66,10 +111,6 @@ const Login = () => {
                     </div>
                 </div>
             </div>
-
-
-
-
         </div>
     );
 };

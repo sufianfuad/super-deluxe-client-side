@@ -9,7 +9,7 @@ import {
     onAuthStateChanged,
     signInWithPopup, GoogleAuthProvider,
     updateProfile,
-    getIdToken,
+    // getIdToken,
     signOut
 } from "firebase/auth";
 
@@ -17,7 +17,7 @@ import {
 initializeFirebase()
 
 const useFirebase = () => {
-    const [user, setUser] = useState([]);
+    const [user, setUser] = useState({});
     // spinner loader
     const [isLoading, setIsLoading] = useState(true);
     //error set
@@ -26,6 +26,60 @@ const useFirebase = () => {
 
     const auth = getAuth();
     const googleProvider = new GoogleAuthProvider();
+
+    //user registration
+    const registerUser = (email, password, name, history) => {
+        //for loading
+        setIsLoading(true);
+
+        createUserWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+                setAuthError('');
+
+                //Set New User
+                const newUser = { email, displayName: name }
+                setUser(newUser);
+
+                //send name to firebase after creation
+                updateProfile(auth.currentUser, {
+                    displayName: name
+                })
+                    .then((result) => {
+                        setUser(result?.user)
+                    })
+                    .catch(error => {
+                        // console.log(error.message);
+                    })
+                history.replace('/');
+            })
+            .catch((error) => {
+                console.log(error)
+                setAuthError(error.message);
+                // ..
+            })
+            .finally(() => setIsLoading(false));
+    }
+    //User Login
+    const loginInUser = (email, password, location, history) => {
+        //for loading
+        setIsLoading(true);
+        //
+        signInWithEmailAndPassword(auth, email, password)
+            .then((result) => {
+                console.log(result.user)
+
+                //== redirect
+                const destination = location?.state?.from || '/';
+                history.replace(destination);
+
+                //==
+                setAuthError('');
+            })
+            .catch((error) => {
+                setAuthError(error.message);
+            })
+            .finally(() => setIsLoading(false));
+    }
 
 
     //GOOGLE login
@@ -41,8 +95,8 @@ const useFirebase = () => {
                 //===
                 setAuthError('');
                 //== redirect
-                // const destination = location?.state?.from || '/';
-                // history.replace(destination);
+                const destination = location?.state?.from || '/';
+                history.replace(destination);
             })
             .catch(error => {
                 setAuthError(error.message);
@@ -50,15 +104,11 @@ const useFirebase = () => {
             .finally(() => setIsLoading(false));
     }
 
-    //Observed user state
+    // user state Observed
     useEffect(() => {
         const unsubscribed = onAuthStateChanged(auth, user => {
             if (user) {
                 setUser(user);
-                // getIdToken(user)
-                //     .then(idToken => {
-                //         setToken(idToken)
-                //     })
             }
             else {
                 setUser({});
@@ -72,6 +122,7 @@ const useFirebase = () => {
     //user Logout
 
     const logOut = () => {
+        //for loading
         setIsLoading(true)
         signOut(auth)
             .then(() => {
@@ -80,14 +131,16 @@ const useFirebase = () => {
             .catch(err => {
 
             })
+            .finally(() => setIsLoading(false))
     }
 
     return {
         user,
+        registerUser,
+        loginInUser,
         signInUsingGoogle,
         isLoading,
         authError,
-
         logOut
     }
 }

@@ -11,14 +11,16 @@ import Products from './Pages/Home/Products/Products';
 import PlaceOrder from './Pages/PlaceOrder/PlaceOrder';
 import ErrorFound from './Pages/ErrorFound/ErrorFound';
 import Login from './Pages/Login/Login/Login';
-
+import Register from './Pages/Register/Register';
+import AuthProvider from './Context/AuthProvider';
 //import react router dom V5
 import {
   BrowserRouter as Router,
   Switch,
   Route,
 } from "react-router-dom";
-import Register from './Pages/Register/Register';
+import PrivateRoute from './Pages/Login/PrivateRoute/PrivateRoute';
+
 
 
 
@@ -26,39 +28,41 @@ import Register from './Pages/Register/Register';
 function App() {
   return (
     <div className="">
-      <Router>
-        <Navigation></Navigation>
-        <Switch>
-          <Route exact path="/">
-            <Home></Home>
-          </Route>
-          <Route path="/home">
-            <Home></Home>
-          </Route>
+      <AuthProvider>
+        <Router>
+          <Navigation></Navigation>
+          <Switch>
+            <Route exact path="/">
+              <Home></Home>
+            </Route>
+            <Route path="/home">
+              <Home></Home>
+            </Route>
 
-          <Route path="/products">
-            <Products></Products>
-          </Route>
+            <Route path="/products">
+              <Products></Products>
+            </Route>
 
-          <Route path="/placeOrder/:purchaseId">
-            <PlaceOrder></PlaceOrder>
-          </Route>
+            <PrivateRoute path="/placeOrder">
+              <PlaceOrder></PlaceOrder>
+            </PrivateRoute>
 
-          <Route path="/login">
-            <Login></Login>
-          </Route>
+            <Route path="/login">
+              <Login></Login>
+            </Route>
 
-          <Route path="/register">
-            <Register></Register>
-          </Route>
+            <Route path="/register">
+              <Register></Register>
+            </Route>
 
-          <Route exact path="*">
-            <ErrorFound></ErrorFound>
-          </Route>
+            <Route exact path="*">
+              <ErrorFound></ErrorFound>
+            </Route>
 
-        </Switch>
-        <Footer></Footer>
-      </Router>
+          </Switch>
+          <Footer></Footer>
+        </Router>
+      </AuthProvider>
     </div>
   );
 }

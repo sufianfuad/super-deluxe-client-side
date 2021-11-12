@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 //css
 import './SingleProduct.css'
 const SingleProduct = ({ product }) => {
-    const { name, img, description, price } = product;
+    const { _id, name, img, description, price } = product;
     return (
         <div className="col-lg-3 col-md-3 col-12">
             <div className="product-card text-center">
@@ -21,9 +21,9 @@ const SingleProduct = ({ product }) => {
                         <p><span className="product-price">Price ${price}</span><small>/peace</small> </p>
                         <p>{description.slice(0, 115)}</p>
                         <div className="purchase-btn p-2">
-                            <Link to="/placeOrder">
+                            <Link to={`/placeOrder/${_id}`}>
                                 <button className="btn btn-warning fw-bold
-                         px-3 py-2 purchase-btn">PURCHASE NOW</button>
+                         px-3 py-2">PURCHASE NOW</button>
                             </Link>
                         </div>
                     </div>

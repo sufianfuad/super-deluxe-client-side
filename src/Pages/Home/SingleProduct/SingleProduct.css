@@ -1,7 +1,7 @@
 
 .product-card{
     border: 1px solid gray;
-    height: 520px;
+    height: 500px;
     width: 310px;
     margin: 10px;
     transition: 0.5s;
@@ -16,10 +16,11 @@
 }
 .product-img{
     border-radius: 2px;
+    
 }
 .product-img img{
-    width: 100%;
-    width: 25vh;
+    width: 200px;
+    height: 30vh;
 }
 .part-one{
     background-color: white;

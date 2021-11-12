@@ -44,12 +44,12 @@ const useFirebase = () => {
                 updateProfile(auth.currentUser, {
                     displayName: name
                 })
-                    .then((result) => {
-                        setUser(result?.user)
+                    .then(() => {
+                        // setUser(result?.user)
                     })
                     .catch(error => {
                         // console.log(error.message);
-                    })
+                    });
                 history.replace('/');
             })
             .catch((error) => {

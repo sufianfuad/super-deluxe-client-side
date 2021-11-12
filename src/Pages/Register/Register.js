@@ -54,7 +54,7 @@ const Register = () => {
                                             name="name"
                                             onBlur={handleOnBlur}
                                             className="form-control"
-                                            placeholder="Enter your email"
+                                            placeholder="Enter your Name"
                                             required
                                         />
                                     </div>
@@ -66,7 +66,7 @@ const Register = () => {
                                             type="email"
                                             onBlur={handleOnBlur}
                                             className="form-control"
-                                            placeholder="Enter your email"
+                                            placeholder="Enter your Email"
                                             required
                                         />
                                     </div>

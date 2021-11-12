@@ -1,0 +1,20 @@
+
+
+.card{
+    margin: 20px;
+    height: 250px;
+    transition: 0.5s;
+    /* background-color: lightseagreen; */
+}
+.card:hover{
+    box-shadow: 5px  5px 10px lightgray;
+}
+.home-product{
+    padding: 50px 0;
+}
+.details{
+    padding: 10px 0px 10px 10px;
+    text-align: left;
+    color: #0F3460;
+  
+}

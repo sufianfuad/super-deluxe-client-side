@@ -20,6 +20,7 @@ import {
   Route,
 } from "react-router-dom";
 import PrivateRoute from './Pages/Login/PrivateRoute/PrivateRoute';
+import AddProducts from './Pages/AddProducts/AddProducts';
 
 
 
@@ -42,8 +43,11 @@ function App() {
             <Route path="/products">
               <Products></Products>
             </Route>
+            <Route path="/addProducts">
+              <AddProducts></AddProducts>
+            </Route>
 
-            <PrivateRoute path="/placeOrder">
+            <PrivateRoute exact path="/placeOrder/:purchaseId">
               <PlaceOrder></PlaceOrder>
             </PrivateRoute>
 

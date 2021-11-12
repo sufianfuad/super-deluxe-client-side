@@ -1,0 +1,24 @@
+.addProduct-container{
+    padding: 50px 0;
+}
+
+.inputs-field {
+    border: none;
+    padding: 10px;
+    width: 50%;
+    border-bottom: 2px solid gray;
+    margin-top: 10px;
+    outline: none;
+    transition: 1s;
+  }
+  .inputs-field:hover {
+    border-bottom: 2px solid #02DFC0;
+  }
+  .add-btn{
+      text-align: center;
+      background-color: #02DFC0;
+      color: white;
+      border: 1px solid #2A454E;
+      font-weight: bold;
+      border-radius: 10px;
+  }

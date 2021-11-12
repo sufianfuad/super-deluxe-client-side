@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Banner from '../Banner/Banner';
-
-import Reviews from '../Reviews/Reviews';
+import CustomReview from '../CustomReview/CustomReview';
+import Review from '../Review/Review';
 //css
 import './Home.css';
 
@@ -57,7 +57,7 @@ const Home = () => {
                     }
                 </div>
             </div>
-            <Reviews></Reviews>
+            <CustomReview></CustomReview>
         </>
     );
 };

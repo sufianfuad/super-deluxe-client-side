@@ -21,6 +21,10 @@ import {
 } from "react-router-dom";
 import PrivateRoute from './Pages/Login/PrivateRoute/PrivateRoute';
 import AddProducts from './Pages/AddProducts/AddProducts';
+import MyOrders from './Pages/MyOrders/MyOrders';
+import Dashboard from './Pages/Dashboard/Dashboard/Dashboard';
+import Payment from './Pages/Payment/Payment';
+import Review from './Pages/Home/Review/Review';
 
 
 
@@ -51,12 +55,27 @@ function App() {
               <PlaceOrder></PlaceOrder>
             </PrivateRoute>
 
+            <PrivateRoute path="/myOrders">
+              <MyOrders></MyOrders>
+            </PrivateRoute>
+
+            <PrivateRoute path="/dashboard">
+              <Dashboard></Dashboard>
+            </PrivateRoute>
+
             <Route path="/login">
               <Login></Login>
             </Route>
 
             <Route path="/register">
               <Register></Register>
+            </Route>
+            <Route path="/payment">
+              <Payment></Payment>
+            </Route>
+
+            <Route path="/reviews">
+              {/* <Review></Review> */}
             </Route>
 
             <Route exact path="*">

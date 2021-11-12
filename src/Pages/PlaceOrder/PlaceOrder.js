@@ -30,7 +30,7 @@ const PlaceOrder = () => {
     const onSubmit = data => {
         data.status = 'pending';
         console.log(data)
-        fetch('', {
+        fetch('http://localhost:7000/orders', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -41,7 +41,7 @@ const PlaceOrder = () => {
             .then(result => {
                 if (result.insertedId) {
                     alert('Your Order successfully processed')
-                    reset()
+                    reset();
                 }
             })
     };
@@ -96,7 +96,8 @@ const PlaceOrder = () => {
                                         type="text" {...register("product_name")} placeholder="Product Name" />
 
                                     <input
-                                        {...register("date")} type="date" />
+                                        defaultValue={purchaseDetails?.price}
+                                        {...register("price")} type="number" />
 
                                     <input
                                         name="address"
@@ -109,7 +110,7 @@ const PlaceOrder = () => {
                                     {/* <input type="submit" value="Place Order" /> */}
                                     <button
                                         className="btn btn-primary"
-                                        type="submit">Place Order</button>
+                                        type="submit">Order Now</button>
                                 </form>
                             </div>
                         </div>

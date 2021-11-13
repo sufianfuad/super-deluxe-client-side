@@ -25,6 +25,7 @@ import MyOrders from './Pages/MyOrders/MyOrders';
 import Dashboard from './Pages/Dashboard/Dashboard/Dashboard';
 import Payment from './Pages/Payment/Payment';
 import Review from './Pages/Home/Review/Review';
+import ManageAllOrder from './Pages/Dashboard/ManageAllOrder/ManageAllOrder';
 
 
 
@@ -63,6 +64,10 @@ function App() {
               <Dashboard></Dashboard>
             </PrivateRoute>
 
+            <PrivateRoute path="/allOrders">
+              <ManageAllOrder></ManageAllOrder>
+            </PrivateRoute>
+
             <Route path="/login">
               <Login></Login>
             </Route>
@@ -70,9 +75,9 @@ function App() {
             <Route path="/register">
               <Register></Register>
             </Route>
-            <Route path="/payment">
+            <PrivateRoute path="/payment">
               <Payment></Payment>
-            </Route>
+            </PrivateRoute>
 
             <Route path="/reviews">
               {/* <Review></Review> */}

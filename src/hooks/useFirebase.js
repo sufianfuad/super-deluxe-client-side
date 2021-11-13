@@ -22,7 +22,8 @@ const useFirebase = () => {
     const [isLoading, setIsLoading] = useState(true);
     //error set
     const [authError, setAuthError] = useState('');
-
+    //admin state
+    const [admin, setAdmin] = useState(false);
 
     const auth = getAuth();
     const googleProvider = new GoogleAuthProvider();
@@ -39,6 +40,9 @@ const useFirebase = () => {
                 //Set New User
                 const newUser = { email, displayName: name }
                 setUser(newUser);
+
+                //save user to database
+                saveUser(email, name, 'POST');
 
                 //send name to firebase after creation
                 updateProfile(auth.currentUser, {
@@ -89,9 +93,9 @@ const useFirebase = () => {
         //=====
         signInWithPopup(auth, googleProvider)
             .then(result => {
-                console.log(result.user)
-                // const user = result.user;
-                // saveUser(user.email, user.displayName, 'PUT');
+                console.log(result)
+                const user = result.user;
+                saveUser(user?.email, user?.displayName, 'PUT');
                 //===
                 setAuthError('');
                 //== redirect
@@ -119,14 +123,39 @@ const useFirebase = () => {
         return () => unsubscribed;
     }, [auth]);
 
+    //admin load
+    useEffect(() => {
+        fetch(`http://localhost:7000/users/${user?.email}`)
+            .then(res => res.json())
+            .then(data => setAdmin(data.admin))
+    }, [user?.email])
+
+
+    //Save User
+    const saveUser = (email, displayName, method) => {
+        const user = { email, displayName };
+        fetch('http://localhost:7000/users', {
+            method: method,
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+            })
+    }
     //user Logout
 
-    const logOut = () => {
+    const logOut = (location, history) => {
         //for loading
         setIsLoading(true)
         signOut(auth)
             .then(() => {
-
+                //== redirect
+                const destination = location?.state?.from || '/';
+                history.replace(destination);
             })
             .catch(err => {
 
@@ -141,6 +170,7 @@ const useFirebase = () => {
         signInUsingGoogle,
         isLoading,
         authError,
+        admin,
         logOut
     }
 }

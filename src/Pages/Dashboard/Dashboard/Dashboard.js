@@ -2,16 +2,21 @@ import React from 'react';
 
 import { Switch, Route, Link, useRouteMatch } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
+import AddProducts from '../../AddProducts/AddProducts';
 import Review from '../../Home/Review/Review';
 import MyOrders from '../../MyOrders/MyOrders';
 import Payment from '../../Payment/Payment';
 import Reviews from '../../Reviews/Reviews';
+import MakeAdmin from '../MakeAdmin/MakeAdmin';
+import ManageProducts from '../ManageProducts/ManageProducts';
+import ManageAllOrder from '../ManageAllOrder/ManageAllOrder';
+// import
 //css
 import './Dashboard.css';
 const Dashboard = () => {
     const { path, url } = useRouteMatch();
 
-    const { logOut } = useAuth();
+    const { user, admin, logOut } = useAuth();
 
     return (
         <div>
@@ -20,17 +25,41 @@ const Dashboard = () => {
                     <div className="col-md-3 ">
                         <div className="dashboard">
                             <h4>Dashboard</h4>
-                            <Link to={`${url}/payment`}>
-                                <li className="dashboard-menu mt-3">Pay</li>
-                            </Link>
+                            {
+                                user?.email && <div>
+                                    <Link to={`${url}/payment`}>
+                                        <li className="dashboard-menu mt-3">Pay</li>
+                                    </Link>
 
-                            <Link to={`${url}/myOrders`}>
-                                <li className="dashboard-menu mt-3">My Order list</li>
-                            </Link>
+                                    <Link to={`${url}/myOrders`}>
+                                        <li className="dashboard-menu mt-3">My Order</li>
+                                    </Link>
 
-                            <Link to={`${url}/review`}>
-                                <li className="dashboard-menu mt-3">Review</li>
-                            </Link>
+                                    <Link to={`${url}/review`}>
+                                        <li className="dashboard-menu mt-3">Review</li>
+                                    </Link>
+                                </div>
+                            }
+
+                            {
+                                admin && <div>
+                                    <Link to={`${url}/makeAdmin`}>
+                                        <li className="dashboard-menu mt-3">Make Admin</li>
+                                    </Link>
+
+                                    <Link to={`${url}/addProduct`}>
+                                        <li className="dashboard-menu mt-3">Add a Product</li>
+                                    </Link>
+
+                                    <Link to={`${url}/manageProduct`}>
+                                        <li className="dashboard-menu mt-3">Manage Products</li>
+                                    </Link>
+
+                                    <Link to={`${url}/manageOrders`}>
+                                        <li className="dashboard-menu mt-3">Manage all Order</li>
+                                    </Link>
+                                </div>
+                            }
 
                             <Link to={`${url}/logout`}>
                                 <li
@@ -68,6 +97,22 @@ const Dashboard = () => {
                             <Route exact path={`${path}/review`}>
                                 <Reviews></Reviews>
                             </Route>
+                            <Route exact path={`${path}/makeAdmin`}>
+                                <MakeAdmin></MakeAdmin>
+                            </Route>
+                            <Route exact path={`${path}/addProduct`}>
+                                <AddProducts></AddProducts>
+                            </Route>
+
+                            <Route exact path={`${path}/manageProduct`}>
+                                <ManageProducts></ManageProducts>
+                            </Route>
+
+                            <Route exact path={`${path}/manageOrders`}>
+                                <ManageAllOrder></ManageAllOrder>
+                            </Route>
+
+
                             {/* <Route exact path={path}>
                                 <MyBookings></MyBookings>
                             </Route>

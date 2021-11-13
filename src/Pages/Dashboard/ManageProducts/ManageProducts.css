@@ -1,0 +1,16 @@
+.ManageProducts-container{
+    padding: 50px 0;
+    margin: 0 auto;
+}
+.products{
+   width: 400px;
+   height: 200px;
+   margin: 10px;
+   border: 2px solid gray;
+}
+.products img{
+    width: 100%;
+}
+.image{
+    width: 200px;
+}

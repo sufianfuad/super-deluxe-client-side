@@ -20,7 +20,7 @@ const ManageAllOrder = () => {
     }
 
     useEffect(() => {
-        fetch('http://localhost:7000/allOrders')
+        fetch('https://stormy-brook-79826.herokuapp.com/allOrders')
             .then(res => res.json())
             .then(data => setAllOrders(data))
     }, []);
@@ -28,7 +28,7 @@ const ManageAllOrder = () => {
 
     const onSubmit = data => {
         console.log(data, orderId)
-        fetch(`http://localhost:7000/updateStatus/${orderId}`, {
+        fetch(`https://stormy-brook-79826.herokuapp.com/updateStatus/${orderId}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
@@ -45,7 +45,7 @@ const ManageAllOrder = () => {
     const handleDeleteOrder = id => {
         const proceed = window.confirm('Are you sure, You want to delete Customer order')
         if (proceed) {
-            const url = `http://localhost:7000/orders/${orderId}`;
+            const url = `https://stormy-brook-79826.herokuapp.com/orders/${orderId}`;
             fetch(url, {
                 method: 'DELETE'
             })

@@ -30,7 +30,7 @@ const PlaceOrder = () => {
     const onSubmit = data => {
         data.status = 'pending';
         console.log(data)
-        fetch('http://localhost:7000/orders', {
+        fetch('https://stormy-brook-79826.herokuapp.com/orders', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -48,7 +48,7 @@ const PlaceOrder = () => {
 
     //data load
     useEffect(() => {
-        fetch(`http://localhost:7000/products/${purchaseId}`)
+        fetch(`https://stormy-brook-79826.herokuapp.com/products/${purchaseId}`)
             .then(res => res.json())
             .then(data => setPurchaseDetails(data))
     }, []);

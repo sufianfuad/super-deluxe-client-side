@@ -14,7 +14,7 @@ const AddProducts = () => {
 
   const onSubmit = data => {
     console.log(data)
-    axios.post('http://localhost:7000/products', data)
+    axios.post('https://stormy-brook-79826.herokuapp.com/products', data)
       .then(res => {
         if (res.data.insertedId) {
           alert('Successfully Added');
@@ -24,7 +24,7 @@ const AddProducts = () => {
   };
   return (
     <div className="addProduct-container">
-      <h1 className="mt-5 text-center text-danger">Please Add Products</h1>
+      <h1 className="mt-5 text-center heading-title">Please Add Products</h1>
       <div className="container">
         <div className="row d-flex align-items-center">
           <div className="col-md-6 col-lg-6 col-sm-12">

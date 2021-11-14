@@ -14,7 +14,7 @@ const Reviews = () => {
 
     const onSubmit = data => {
         console.log(data)
-        axios.post('http://localhost:7000/reviews', data)
+        axios.post('https://stormy-brook-79826.herokuapp.com/reviews', data)
             .then(res => {
                 if (res.data.insertedId) {
                     alert('Successfully Added');

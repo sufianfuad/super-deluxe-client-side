@@ -99,7 +99,7 @@ const useFirebase = () => {
                 //===
                 setAuthError('');
                 //== redirect
-                const destination = location?.state?.from || '/';
+                const destination = location?.state?.from || '/dashboard';
                 history.replace(destination);
             })
             .catch(error => {
@@ -125,7 +125,7 @@ const useFirebase = () => {
 
     //admin load
     useEffect(() => {
-        fetch(`http://localhost:7000/users/${user?.email}`)
+        fetch(`https://stormy-brook-79826.herokuapp.com/users/${user?.email}`)
             .then(res => res.json())
             .then(data => setAdmin(data.admin))
     }, [user?.email])
@@ -134,7 +134,7 @@ const useFirebase = () => {
     //Save User
     const saveUser = (email, displayName, method) => {
         const user = { email, displayName };
-        fetch('http://localhost:7000/users', {
+        fetch('https://stormy-brook-79826.herokuapp.com/users', {
             method: method,
             headers: {
                 'content-type': 'application/json'

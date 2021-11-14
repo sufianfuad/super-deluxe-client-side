@@ -11,7 +11,7 @@ const ManageProducts = () => {
     // const [pdId, setPdId] = useState('')
 
     useEffect(() => {
-        fetch('http://localhost:7000/products')
+        fetch('https://stormy-brook-79826.herokuapp.com/products')
             .then(res => res.json())
             .then(data => setManageProduct(data))
     }, []);
@@ -20,7 +20,7 @@ const ManageProducts = () => {
     // const handleDeleteProduct = id => {
     //     const proceed = window.confirm('Are you sure, You want to delete Products')
     //     if (proceed) {
-    //         const url = `http://localhost:7000/products/${id}`;
+    //         const url = `https://stormy-brook-79826.herokuapp.com/products/${id}`;
     //         fetch(url, {
     //             method: 'DELETE'
     //         })

@@ -11,7 +11,7 @@ const MyOrders = () => {
     const [order, setOrder] = useState([]);
 
     useEffect(() => {
-        fetch(`http://localhost:7000/orders/${user?.email}`)
+        fetch(`https://stormy-brook-79826.herokuapp.com/orders/${user?.email}`)
             .then(res => res.json())
             .then(data => setOrder(data))
     }, [user?.email]);
@@ -19,7 +19,7 @@ const MyOrders = () => {
     // const handleDeleteOrder = id => {
     //     const proceed = window.confirm('Are you sure, You want to delete Products')
     //     if (proceed) {
-    //         const url = `http://localhost:7000/orders/${id}`;
+    //         const url = `https://stormy-brook-79826.herokuapp.com/orders/${id}`;
     //         fetch(url, {
     //             method: 'DELETE'
     //         })

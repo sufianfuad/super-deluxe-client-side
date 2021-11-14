@@ -7,7 +7,7 @@ const CustomReview = () => {
     const [reviews, setReviews] = useState([])
 
     useEffect(() => {
-        fetch('http://localhost:7000/reviews')
+        fetch('https://stormy-brook-79826.herokuapp.com/reviews')
             .then(res => res.json())
             .then(data => setReviews(data))
     }, [])

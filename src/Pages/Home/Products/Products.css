@@ -6,7 +6,8 @@
     text-align: center;
 }
 .products-title{
-    color: #1A2E35;
+    /* color: #1A2E35; */
+    color: #181D31;
     display: inline-block;
 }
 .products-title::after{
@@ -15,5 +16,5 @@
    width: 50%; 
    height: 3px;
    display: block;
-   background-color: blue;
+   background-color: #5A04DE;
 }

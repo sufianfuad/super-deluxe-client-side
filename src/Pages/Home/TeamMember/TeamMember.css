@@ -1,0 +1,14 @@
+.team {
+    padding: 30px 0;
+  }
+.team-main{
+    padding: 25px 0;
+}
+.team-color{
+    color: #5A04DE;
+}
+.dot-color{
+    color: #41437C;
+    /* color: #d00a2b; */
+    font-size: 50px;
+}

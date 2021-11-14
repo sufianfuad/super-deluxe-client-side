@@ -52,6 +52,9 @@ const Footer = () => {
                                 <p>Phone: +012345657</p>
                                 <p>Email: <strong>super.deluxe44@gmail.com</strong></p>
                             </div>
+                            <div>
+
+                            </div>
                         </div>
 
                     </div>

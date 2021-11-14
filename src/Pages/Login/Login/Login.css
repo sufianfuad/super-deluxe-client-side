@@ -19,9 +19,9 @@
     background-color: #f9f9f9;
   }
 .login-text{
-      color: #5A04DE;
-      font-weight: bold;
-  }
+    color: #181D31;
+    font-weight: bold;
+}
 .sign-btn {
     /* background-color: #3578e7; */
     background-color: #009C86;
@@ -38,12 +38,12 @@
     padding: 1px;
   }
 .sign-text{
-    margin: auto;
+  margin: auto;
 }
 .g-logo-holder {
-    background-color: white;
-    padding: 5px;
-  }
-  .g-logo-holder img {
-    width: 30px;
-  }
+  background-color: white;
+  padding: 5px;
+}
+.g-logo-holder img {
+  width: 30px;
+}

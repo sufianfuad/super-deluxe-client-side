@@ -17,8 +17,8 @@ const Products = () => {
     return (
         <div className="products-container">
             <div className="text-center pb-3">
-                <div>
-                    <h3 className="products-title">Our Products</h3>
+                <div className="heading-title">
+                    <h3 className="fw-bold">Our Products<span className="dot-color">.</span></h3>
                     <h6 className="animate__animated animate__bounce mt-3">Choose Your Fan And Purchase</h6>
                 </div>
             </div>

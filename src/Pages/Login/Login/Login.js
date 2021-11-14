@@ -39,7 +39,7 @@ const Login = () => {
     }
     return (
         <div className="login-container">
-            <h2 className="text-center login-text">Login Please</h2>
+            <h2 className="text-center login-text">Login Please<span className="dot-color">.</span></h2>
             <div className="container">
                 <div className="row d-flex align-items-center">
                     <div className="col-md-6">

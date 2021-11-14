@@ -53,7 +53,9 @@ const Reviews = () => {
                         className="p-2 m-2 w-50 inputs-field"
                     />
                     {/*  */}
-                    {errors.exampleRequired && <span>This field is required</span>}
+                    {errors.exampleRequired && (
+                        <span>This field is required</span>
+                    )}
 
                     <input
                         type="submit"

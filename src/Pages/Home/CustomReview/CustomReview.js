@@ -15,7 +15,7 @@ const CustomReview = () => {
         <div className="customReview-container">
             <div className="text-center pb-3">
                 <div className="product-title">
-                    <h3 className="animate__animated animate__backInDown">Our Valuable Client Reviews</h3>
+                    <h3 className="animate__animated animate__backInDown review-title products-title mb-5">Our Customer Say</h3>
                 </div>
             </div>
             <div className="container">
@@ -25,9 +25,8 @@ const CustomReview = () => {
                         <div className="spinner">
                             <Spinner animation="border" />
                         </div>
-
                         :
-                        <div className="row container">
+                        <div className="row container reviews g-4">
                             {
                                 reviews.map(review =>
                                     <SingleReview

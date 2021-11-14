@@ -3,6 +3,8 @@ import { Table } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
 
+//css
+import './MyOrders.css';
 const MyOrders = () => {
     const { user } = useAuth();
 
@@ -13,11 +15,31 @@ const MyOrders = () => {
             .then(res => res.json())
             .then(data => setOrder(data))
     }, [user?.email]);
+    //DELETE order
+    // const handleDeleteOrder = id => {
+    //     const proceed = window.confirm('Are you sure, You want to delete Products')
+    //     if (proceed) {
+    //         const url = `http://localhost:7000/orders/${id}`;
+    //         fetch(url, {
+    //             method: 'DELETE'
+    //         })
+    //             .then(res => res.json())
+    //             .then(data => {
+    //                 if (data.deletedCount > 0) {
+    //                     alert('Deleted Successfully')
+    //                     const remainingProduct = order.filter(pd => pd._id !== id);
+    //                     setOrder(remainingProduct);
+    //                 }
+    //             });
+    //     }
+
+    // }
+
 
     return (
         <div className="myOrder-container">
             <div className="container">
-                <h2 className="text-center pb-3">My Orders Here: {order.length}</h2>
+                <h2 className="text-center pb-3 heading-title">My Orders Here: {order.length}</h2>
                 {user.email &&
                     <div className="pb-3">
                         {/* my order list in a table */}
@@ -44,11 +66,11 @@ const MyOrders = () => {
                                         <button
                                             // onClick={() => handleDeleteOrder(order._id)}
                                             className="btn btn-danger delete-btn px-3 py-2">Delete</button>
-                                        <Link to={`/orders/update/${order._id}`}>
+                                        {/* <Link to={`/orders/update/${order._id}`}>
                                             <button
                                                 onClick=""
                                                 className="btn btn-success px-3 py-2">Update</button>
-                                        </Link>
+                                        </Link> */}
 
                                     </tr>
                                 </tbody>

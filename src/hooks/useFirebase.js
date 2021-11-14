@@ -73,7 +73,7 @@ const useFirebase = () => {
                 console.log(result.user)
 
                 //== redirect
-                const destination = location?.state?.from || '/';
+                const destination = location?.state?.from || '/dashboard';
                 history.replace(destination);
 
                 //==

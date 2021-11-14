@@ -1,14 +1,40 @@
+.dashboard-container{
+  padding: 30px 0;
+  background-color: #FFFEF9;
+}
 .dashboard {
-    background-color: black;
+    background-color: #1A2E35;
     height: 100vh;
     color: white;
     cursor: pointer;
     text-align: center;
   }
   .dashboard-menu {
+    margin: auto;
+    padding: 10px;
+    width: 50%;
+    font-size: 18px;
+    font-weight: bold;
     list-style: none;
     margin-top: 5px;
+    border: 2px solid #306e65;
+    background-color: aliceblue;
+    border-radius: 15px;
+    
   }
   .dashboard-menu:hover {
-    color: cyan;
+    color: #1A2E35;
+  }
+  .btn-visit-front {
+    background-color: #306e65;
+    border: 2px solid white;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 6px 20px;
+    color: white;
+  }
+  .logged-user p{
+    margin-bottom: 0;
+    font-size: 18px;
+    font-weight: 400;
   }

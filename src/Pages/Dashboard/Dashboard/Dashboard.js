@@ -3,7 +3,6 @@ import React from 'react';
 import { Switch, Route, Link, useRouteMatch } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 import AddProducts from '../../AddProducts/AddProducts';
-import Review from '../../Home/Review/Review';
 import MyOrders from '../../MyOrders/MyOrders';
 import Payment from '../../Payment/Payment';
 import Reviews from '../../Reviews/Reviews';
@@ -13,6 +12,7 @@ import ManageAllOrder from '../ManageAllOrder/ManageAllOrder';
 // import
 //css
 import './Dashboard.css';
+import AdminRoute from '../../Login/AdminRoute/AdminRoute';
 const Dashboard = () => {
     const { path, url } = useRouteMatch();
 
@@ -20,13 +20,23 @@ const Dashboard = () => {
 
     return (
         <div>
-            <div className="dashboard-container ">
+            <div className="dashboard-container">
                 <div className="row container">
-                    <div className="col-md-3 ">
+                    <div className="col-md-3 col-lg-3 col-sm-12">
                         <div className="dashboard">
-                            <h4>Dashboard</h4>
+                            <h4 className="pt-5">Dashboard</h4>
+                            <div className="dash-btn-holder">
+                                <Link to="/">
+                                    <button className="btn-visit-front">Visit Site</button>
+                                </Link>
+                            </div>
+                            <div className="logged-user pt-2">
+                                <p>Welcome! {user?.displayName}</p>
+                            </div>
                             {
-                                user?.email && <div>
+                                !admin && <div>
+
+
                                     <Link to={`${url}/payment`}>
                                         <li className="dashboard-menu mt-3">Pay</li>
                                     </Link>
@@ -66,24 +76,9 @@ const Dashboard = () => {
                                     onClick={logOut}
                                     className="dashboard-menu mt-3">Logout</li>
                             </Link>
-                            {/* <div className="admin-dashboard">
-                                <li className="dashboard-menu mt-5">Orders list</li>
-
-                               
-                                    <Link to={`${url}/addService`}>
-                                        <li className="dashboard-menu">Add Service</li>
-                                    </Link>
-                                
-                                <Link to={`${url}/makeAdmin`}>
-                                    <li className="dashboard-menu">Make Admin</li>
-                                </Link>
-                                <Link to={`${url}/manageServices`}>
-                                    <li className="dashboard-menu">Manage Service</li>
-                                </Link>
-                            </div> */}
                         </div>
                     </div>
-                    <div className="col-md-9">
+                    <div className="col-lg-9 col-md-9 col-sm-12">
                         <Switch>
                             <Route exact path={path}>
                                 <MyOrders></MyOrders>
@@ -97,40 +92,20 @@ const Dashboard = () => {
                             <Route exact path={`${path}/review`}>
                                 <Reviews></Reviews>
                             </Route>
-                            <Route exact path={`${path}/makeAdmin`}>
+                            <AdminRoute exact path={`${path}/makeAdmin`}>
                                 <MakeAdmin></MakeAdmin>
-                            </Route>
-                            <Route exact path={`${path}/addProduct`}>
+                            </AdminRoute>
+                            <AdminRoute exact path={`${path}/addProduct`}>
                                 <AddProducts></AddProducts>
-                            </Route>
+                            </AdminRoute>
 
-                            <Route exact path={`${path}/manageProduct`}>
+                            <AdminRoute exact path={`${path}/manageProduct`}>
                                 <ManageProducts></ManageProducts>
-                            </Route>
+                            </AdminRoute>
 
-                            <Route exact path={`${path}/manageOrders`}>
+                            <AdminRoute exact path={`${path}/manageOrders`}>
                                 <ManageAllOrder></ManageAllOrder>
-                            </Route>
-
-
-                            {/* <Route exact path={path}>
-                                <MyBookings></MyBookings>
-                            </Route>
-                            <Route exact path={`${path}/review`}>
-                                <Review></Review>
-                            </Route>
-                            <Route exact path={`${path}/BookingList`}>
-                                <MyBookings></MyBookings>
-                            </Route>
-                            <Route exact path={`${path}/makeAdmin`}>
-                                <MakeAdmin></MakeAdmin>
-                            </Route>
-                            <Route exact path={`${path}/addService`}>
-                                <AddServices></AddServices>
-                            </Route>
-                            <Route exact path={`${path}/manageServices`}>
-                                <ManageServices></ManageServices>
-                            </Route> */}
+                            </AdminRoute>
                         </Switch>
                     </div>
                 </div>

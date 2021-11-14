@@ -7,8 +7,8 @@ import { useLocation, useHistory } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 //image 
 import loginBanner from '../../../images/login-banner/login.jpg';
+import GoogleLogo from '../../../images/googlelogo.png';
 //==
-
 //css
 import './Login.css';
 
@@ -39,7 +39,7 @@ const Login = () => {
     }
     return (
         <div className="login-container">
-            <h2 className="text-center">Login Please</h2>
+            <h2 className="text-center login-text">Login Please</h2>
             <div className="container">
                 <div className="row d-flex align-items-center">
                     <div className="col-md-6">
@@ -48,7 +48,7 @@ const Login = () => {
                         </div>
                     </div>
                     <div className="col-md-6">
-                        <div className="form-container">
+                        <div className="loginForm-container">
                             <form
                                 onSubmit={handleLoginSubmit}
                                 className="w-75 mx-auto">
@@ -101,11 +101,17 @@ const Login = () => {
                             </form>
 
                             <p className="text-center py-3">---------------------</p>
-                            <div className="google-btn text-center mt-2">
-                                <button
-                                    onClick={handleGoogleLogin}
-                                    className="btn btn-warning px-3 py-2 fw-bold"
-                                >SIgn In With Google</button>
+                            <div className="login">
+                                <div className="container text-center mt-2">
+                                    <button
+                                        onClick={handleGoogleLogin}
+                                        className="btn sign-btn"
+                                    ><div className="g-logo-holder">
+                                            <img src={GoogleLogo} alt="Google" />
+                                        </div>
+                                        <div className="sign-text">Sign in with Google</div>
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>

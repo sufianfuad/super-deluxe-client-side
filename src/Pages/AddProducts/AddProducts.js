@@ -2,7 +2,8 @@ import axios from 'axios';
 import React from 'react';
 import { useForm } from 'react-hook-form';
 //css
-import './AddProducts.css'
+import './AddProducts.css';
+import addProduct from '../../images/login-banner/addProduct.jpg';
 const AddProducts = () => {
 
   const { register,
@@ -23,48 +24,58 @@ const AddProducts = () => {
   };
   return (
     <div className="addProduct-container">
-      <div>
-        <h1 className="mt-5 text-center text-danger">Please Add Products</h1>
-        <div className=" w-25 m-auto mt-5">
+      <h1 className="mt-5 text-center text-danger">Please Add Products</h1>
+      <div className="container">
+        <div className="row d-flex align-items-center">
+          <div className="col-md-6 col-lg-6 col-sm-12">
+            <div className="">
+              <div className="form-container">
+                <form onSubmit={handleSubmit(onSubmit)}>
+                  <input
+                    {...register("name")}
+                    placeholder="Name"
+                    className="p-2 m-2 inputs-field"
+                  />
 
-          <div className="form-container">
-            <form onSubmit={handleSubmit(onSubmit)}>
-              <input
-                {...register("name")}
-                placeholder="Name"
-                className="p-2 m-2 w-100 inputs-field"
-              />
+                  <input
+                    {...register("description")}
+                    placeholder="Description"
+                    className="p-2 m-2  inputs-field"
+                  />
 
-              <input
-                {...register("description")}
-                placeholder="Description"
-                className="p-2 m-2 w-100 inputs-field"
-              />
+                  <input
+                    {...register("image", { required: true })}
+                    placeholder="Image Link"
+                    className="p-2 m-2 inputs-field"
+                  />
 
-              <input
-                {...register("image", { required: true })}
-                placeholder="Image Link"
-                className="p-2 m-2 w-100 inputs-field"
-              />
+                  <input
+                    {...register("price", { required: true })}
+                    placeholder="Price"
+                    type="number"
+                    className="p-2 m-2 inputs-field"
+                  />
+                  {/*  */}
+                  {errors.exampleRequired && <span>This field is required</span>}
 
-              <input
-                {...register("price", { required: true })}
-                placeholder="Price"
-                type="number"
-                className="p-2 m-2 w-100 inputs-field"
-              />
-              {/*  */}
-              {errors.exampleRequired && <span>This field is required</span>}
+                  <input
+                    type="submit"
+                    value="Add"
+                    className="btn add-btn w-50 px-3 py-2"
+                  />
+                </form>
+              </div>
+            </div>
+          </div>
+          <div className="col-md-6 col-lg-6 col-sm-12">
+            <div className="add-img">
+              <img src={addProduct} alt="" />
+            </div>
 
-              <input
-                type="submit"
-                value="Add"
-                className="btn add-btn w-100 px-3 py-2"
-              />
-            </form>
           </div>
         </div>
       </div>
+
     </div>
   );
 };

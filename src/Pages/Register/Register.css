@@ -1,6 +1,11 @@
 .register-container{
     padding: 50px 0;
+    background-color: #FFFEF9;
 }
 .click-btn {
-    background-color: rgb(1, 223, 191);
+    color: #f0f0f0;
+    background-color: #2B454D;
+}
+.click-btn:hover{
+    color: white;
 }

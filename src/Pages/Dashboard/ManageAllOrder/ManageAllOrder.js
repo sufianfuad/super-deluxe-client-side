@@ -69,7 +69,7 @@ const ManageAllOrder = () => {
                     <Table striped bordered hover>
                         <thead>
                             <tr>
-                                <th>#</th>
+                                <th>Sl No</th>
                                 <th>Name</th>
                                 <th>Email</th>
                                 <th>Price</th>

@@ -7,7 +7,7 @@ import './Products.css';
 
 
 const Products = () => {
-    const [products, setProducts] = useState([])
+    const [products, setProducts] = useState([]);
 
     useEffect(() => {
         fetch('http://localhost:7000/products')
@@ -15,11 +15,11 @@ const Products = () => {
             .then(data => setProducts(data))
     }, [])
     return (
-        <div className="product-container">
+        <div className="products-container">
             <div className="text-center pb-3">
-                <div className="product-title">
-                    <h3>Choose Your Fan And Purchase</h3>
-                    <h4 className="animate__animated animate__bounce"></h4>
+                <div>
+                    <h3 className="products-title">Our Products</h3>
+                    <h6 className="animate__animated animate__bounce mt-3">Choose Your Fan And Purchase</h6>
                 </div>
             </div>
             <div className="container">
@@ -29,15 +29,17 @@ const Products = () => {
                         <div className="spinner">
                             <Spinner animation="border" />
                         </div>
-
                         :
-                        <div className="row g-4">
-                            {
-                                products.map(product => <SingleProduct
-                                    key={product.id}
-                                    product={product}
-                                ></SingleProduct>)
-                            }
+                        <div >
+                            <div className="row g-4">
+                                {
+                                    products.map(product => <SingleProduct
+                                        key={product.id}
+                                        product={product}
+                                    ></SingleProduct>)
+                                }
+
+                            </div>
                         </div>
                 }
 

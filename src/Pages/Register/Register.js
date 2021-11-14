@@ -33,7 +33,7 @@ const Register = () => {
     }
     return (
         <div className="register-container">
-            <h2 className="text-center">Create Account</h2>
+            <h2 className="text-center login-text">Please Create Account</h2>
             <div className="container">
                 <div className="row d-flex align-items-center">
                     <div className="col-lg-6 col-md-6 col-sm-12">
@@ -43,7 +43,7 @@ const Register = () => {
                     </div>
                     {/* registration form */}
                     <div className="col-lg-6 col-md-6 col-sm-12">
-                        <div className="form-container">
+                        <div className="loginForm-container">
                             {!isLoading &&
                                 <form
                                     onSubmit={handleLoginSubmit}
@@ -100,7 +100,7 @@ const Register = () => {
 
                                     </div>
                                     <Link
-                                        to="/register">
+                                        to="/login">
                                         <a href="">Already Register? Login Please</a>
                                         {/* <button type="text" className="btn btn-primary text-center">New In Super Deluxe? Create A Account</button> */}
                                     </Link>

@@ -37,7 +37,7 @@ const MakeAdmin = () => {
     };
     return (
         <div className="makeAdmin-container">
-            <h4 className="text-center text-success">Make Admin Anyone</h4>
+            <h4 className="text-center text">Make Admin</h4>
             <div className="form-area mt-5">
                 <div className="form-container container">
                     <form onSubmit={handleSubmit(onSubmit)}>

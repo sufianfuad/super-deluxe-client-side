@@ -1,6 +1,6 @@
 .footer-container{
     padding: 50px 0;
-    background-color: #383838;
+    background-color: #1A2E35;
 }
 .footer-menu{
 
@@ -11,16 +11,17 @@
     border-radius: 100%;
 }
 .footer-title{
-    color:  #FBCF16;
+    color:  #01B8BE;
+    /* color:  #FBCF16; */
     margin-bottom: 20px;
     font-size: 25px;
     font-weight: bold;
     text-transform: uppercase;
 }
-.book-btn{
+.subs-btn{
     font-size: 18px;
     color: #fff;
-    background-color: #FF7F47;
+    background-color: #01B8BE;
 }
 .book-btn:hover{
     color: #fff;
@@ -61,4 +62,14 @@ ul{
 }
 .contact-info{
     text-align: left;
+}
+.download-btn{
+    width: 100px;
+}
+.download-btn img {
+  display: block;
+  cursor: pointer;
+}
+.download-btn img:last-child {
+  margin-top: 20px;
 }

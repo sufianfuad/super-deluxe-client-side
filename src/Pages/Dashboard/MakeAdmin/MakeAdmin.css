@@ -1,9 +1,11 @@
 .makeAdmin-container{
     padding: 50px 0;
+    background-color: #FFFEF9;
+}
+.text{
+    color: #01B8BE;
+    font-weight: bold;
 }
 .form-area{
-   margin-left:  200px;
-}
-.form-container {
-    text-align: left;
+   margin-left:  100px;
 }

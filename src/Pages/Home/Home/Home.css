@@ -1,5 +1,4 @@
 
-
 .card{
     margin: 20px;
     height: 250px;
@@ -9,8 +8,13 @@
 .card:hover{
     box-shadow: 5px  5px 10px lightgray;
 }
+.homeProduct-container{
+    /* background-color: #EEEFE9; */
+    background-color: #FFFEF9;
+}
 .home-product{
     padding: 50px 0;
+    
 }
 .details{
     padding: 10px 0px 10px 10px;

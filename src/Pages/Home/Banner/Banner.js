@@ -6,10 +6,10 @@ import React from 'react';
 import './Banner.css'
 const Banner = () => {
     return (
-        <div className="banner-container">
-            <div className="container">
-                <div className="row d-flex align-items-center ">
-                    <div className="col-lg-5 col-md-5 col-sm-12">
+        <div className="banner-container ">
+            <div className="banner">
+                {/* <div className="row d-flex container align-items-center justify-content-center">
+                    <div className="col-lg-7 col-md-7 col-sm-12">
                         <div className="banner-info">
                             <h1>Welcome to Our Table Fan Store</h1>
                             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, fugit nemo illum fugiat praesentium tenetur a unde necessitatibus vel ut?</p>
@@ -19,12 +19,9 @@ const Banner = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="col-lg-7 col-md-7 col-sm-12">
-                        <div className="banner-img">
-                            <img src="https://www.kdk.com.my/wp-content/uploads/2019/09/menu-General-Fan.jpg" alt="" />
-                        </div>
+                    <div className="col-lg-5 col-md-5 col-sm-12">
                     </div>
-                </div>
+                </div> */}
             </div>
         </div>
     );

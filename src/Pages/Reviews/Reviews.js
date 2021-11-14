@@ -24,6 +24,7 @@ const Reviews = () => {
     };
     return (
         <div className="reviews-container">
+            <h4 className="text-center pb-3 heading-title">Give us your opinion to about our site!..</h4>
             <div className="form-container container">
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <input

@@ -1,9 +1,38 @@
+.navbar{
+    background-color: rgb(1, 184, 190);
+    border-bottom: 1px solid gray;
+    transition: 1s;
+    
+}
+.navbar:hover{
+    box-shadow: 5px 5px 5px #1A2E35;
+}
 .nav-title{
-    color: lightseagreen;
+    /* color: lightseagreen; */
+    color: #1A2E35;
+}
+.nav-item{
+    color: #1A2E35;
+    font-size: 18px;
+    font-weight: bold;
+}
+.nav-item:hover{
+    color: #f0f0f0;
 }
 
 .profile-img img{
     width: 40px;
     height: 40px;
     border-radius: 50%;
+    border:2px solid black;
+    background-color: gray;
+}
+.nav-logo img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+.user{
+    font-weight: bold;
+    color: black;
 }

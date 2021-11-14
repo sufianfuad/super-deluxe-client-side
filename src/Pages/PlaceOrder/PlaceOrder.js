@@ -60,15 +60,15 @@ const PlaceOrder = () => {
                     <div className="clo-lg-6 col-md-6 col-12">
                         <div className="details-container">
                             <div className="placeOrder-details">
-                                <div className="order-img">
+                                <div className="order-img text-center">
                                     <img src={purchaseDetails?.img} alt="" />
                                 </div>
                                 <div className="details p-2">
                                     <h4>{purchaseDetails?.name}</h4>
-                                    <h6>Price ${purchaseDetails?.price} /peace</h6>
+                                    <p><span className="price-color">Price ${purchaseDetails?.price}</span><small>/piece</small> </p>
                                     <p>{purchaseDetails?.description}</p>
                                     <Link to="/home">
-                                        <button className="btn btn-warning fw-bold px-3 py-2">Choose More</button>
+                                        <button className="btn purchase-btn fw-bold px-3 py-2">Choose More</button>
                                     </Link>
 
                                 </div>
@@ -78,7 +78,7 @@ const PlaceOrder = () => {
                     <div className="col-lg-6 col-md-6 col-12">
                         <div className="details-container">
                             <div className="order-box">
-                                <h5 className="title-color text-center">Order Here</h5>
+                                <h5 className="title-color text-center"></h5>
                                 <form onSubmit={handleSubmit(onSubmit)}>
                                     {/* input fields */}
                                     <input
@@ -109,7 +109,7 @@ const PlaceOrder = () => {
 
                                     {/* <input type="submit" value="Place Order" /> */}
                                     <button
-                                        className="btn btn-primary"
+                                        className="btn add-btn mt-3 px-3 py-2 w-50"
                                         type="submit">Order Now</button>
                                 </form>
                             </div>

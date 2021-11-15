@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { Table } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
 
 //css
@@ -16,24 +15,24 @@ const MyOrders = () => {
             .then(data => setOrder(data))
     }, [user?.email]);
     //DELETE order
-    // const handleDeleteOrder = id => {
-    //     const proceed = window.confirm('Are you sure, You want to delete Products')
-    //     if (proceed) {
-    //         const url = `https://stormy-brook-79826.herokuapp.com/orders/${id}`;
-    //         fetch(url, {
-    //             method: 'DELETE'
-    //         })
-    //             .then(res => res.json())
-    //             .then(data => {
-    //                 if (data.deletedCount > 0) {
-    //                     alert('Deleted Successfully')
-    //                     const remainingProduct = order.filter(pd => pd._id !== id);
-    //                     setOrder(remainingProduct);
-    //                 }
-    //             });
-    //     }
+    const handleDeleteOrder = id => {
+        const proceed = window.confirm('Are you sure, You want to delete Products')
+        if (proceed) {
+            const url = `https://stormy-brook-79826.herokuapp.com/orders/${id}`;
+            fetch(url, {
+                method: 'DELETE'
+            })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.deletedCount > 0) {
+                        alert('Deleted Successfully')
+                        const remainingProduct = order.filter(pd => pd._id !== id);
+                        setOrder(remainingProduct);
+                    }
+                });
+        }
 
-    // }
+    }
 
 
     return (
@@ -64,7 +63,7 @@ const MyOrders = () => {
                                         <td>{pd?.address}</td>
                                         <td><span className="status">{pd?.status}</span></td>
                                         <button
-                                            // onClick={() => handleDeleteOrder(order._id)}
+                                            onClick={() => handleDeleteOrder(pd._id)}
                                             className="btn btn-danger delete-btn px-3 py-2">Delete</button>
                                         {/* <Link to={`/orders/update/${order._id}`}>
                                             <button

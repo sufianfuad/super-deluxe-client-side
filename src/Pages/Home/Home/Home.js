@@ -1,5 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+//react font awesome import
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+//==
 import Banner from '../Banner/Banner';
 import CustomReview from '../CustomReview/CustomReview';
 import TeamMember from '../TeamMember/TeamMember';
@@ -9,7 +13,8 @@ import './Home.css';
 const Home = () => {
 
     const [homeProduct, setHomeProduct] = useState([])
-
+    // react font awesome
+    const cartIcon = <FontAwesomeIcon icon={faShoppingCart} />
     useEffect(() => {
         fetch('https://stormy-brook-79826.herokuapp.com/products')
             .then(res => res.json())
@@ -48,9 +53,9 @@ const Home = () => {
                                                         <h4>{product?.name}</h4>
                                                         <h6>Price: $<span className="price">{product?.price}</span><small>/piece</small></h6>
                                                         <p><small>{product?.description.slice(0, 115)}</small></p>
-                                                        <div className="purchase-btn p-2">
+                                                        <div className="p-2">
                                                             <Link to="/placeOrder">
-                                                                <button className="btn btn-warning fw-bold px-3 py-2">PURCHASE NOW</button>
+                                                                <button className="btn purchase-btn fw-bold px-3 py-2"><span className="icons px-1">{cartIcon}</span>PURCHASE NOW</button>
                                                             </Link>
                                                         </div>
                                                     </div>

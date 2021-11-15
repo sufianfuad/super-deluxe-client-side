@@ -26,6 +26,7 @@ import Dashboard from './Pages/Dashboard/Dashboard/Dashboard';
 import Payment from './Pages/Payment/Payment';
 import Review from './Pages/Home/Review/Review';
 import ManageAllOrder from './Pages/Dashboard/ManageAllOrder/ManageAllOrder';
+import TeamMember from './Pages/Home/TeamMember/TeamMember';
 
 
 
@@ -50,6 +51,9 @@ function App() {
             </Route>
             <Route path="/addProducts">
               <AddProducts></AddProducts>
+            </Route>
+            <Route path="/teamMember">
+              <TeamMember></TeamMember>
             </Route>
 
             <PrivateRoute exact path="/placeOrder/:purchaseId">

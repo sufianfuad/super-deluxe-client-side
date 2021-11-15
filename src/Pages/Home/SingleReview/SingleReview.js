@@ -1,9 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+//react font awesome import
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUser } from '@fortawesome/free-solid-svg-icons';
 //css
 import './SingleReview.css';
 const SingleReview = ({ review }) => {
     const { name, email, rating, comment } = review;
+    // react font awesome
+    const userIcon = <FontAwesomeIcon icon={faUser} />
     return (
         <div className="col-lg-3 col-md-3 col-12">
             <div className="">
@@ -15,24 +20,13 @@ const SingleReview = ({ review }) => {
                         <h5>{comment}</h5>
                         <Link>
                             <button className="btn purchase-btn px-3 py-2 fw-bold">
-                                Visit Profile
+                                <span className="icons px-1">{userIcon}</span> Visit Profile
                             </button>
                         </Link>
                     </div>
                 </div>
             </div>
         </div>
-
-        // <div className="col-lg-3 col-md-3 col-12">
-        //     <div className="review-box">
-        //         <div className="review-info">
-        //             <h4>Client: {name}</h4>
-        //             <p>{email}</p>
-        //             <p>{rating}</p>
-        //             <h5>{comment}</h5>
-        //         </div>
-        //     </div>
-        // </div>
     );
 };
 

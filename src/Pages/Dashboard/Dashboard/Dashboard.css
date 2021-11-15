@@ -38,3 +38,8 @@
     font-size: 18px;
     font-weight: 400;
   }
+  .dashIcon{
+    color: #01B8BE;
+    background-color: white;
+    border-radius: 5px;
+  }

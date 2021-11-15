@@ -113,7 +113,7 @@ const Register = () => {
                             }
                             {
                                 user?.email && <Alert variant="success">
-                                    Successfully Create Your Account
+                                    Successfully Created Your Account
                                 </Alert>
                             }
                             {

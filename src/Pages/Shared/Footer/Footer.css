@@ -2,9 +2,6 @@
     padding: 50px 0;
     background-color: #1A2E35;
 }
-.footer-menu{
-
-}
 .footer-logo img{
     width: 60px;
     height: 60px;
@@ -12,16 +9,17 @@
 }
 .footer-title{
     color:  #01B8BE;
-    /* color:  #FBCF16; */
     margin-bottom: 20px;
     font-size: 25px;
     font-weight: bold;
     text-transform: uppercase;
+    text-decoration: none;
 }
 .subs-btn{
-    font-size: 18px;
+    font-size: 20px;
+    font-weight: bold;
     color: #fff;
-    background-color: #01B8BE;
+    background-color: #009E83;
 }
 .book-btn:hover{
     color: #fff;
@@ -63,6 +61,26 @@ ul{
 .contact-info{
     text-align: left;
 }
+/*icon style*/
+.icons-container{
+    width: 200px;
+    padding: 3px;
+    border-radius: 10px;
+}
+.icon{
+    margin: 5px;
+    padding: 0px 8px;
+    font-size: 30px;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #fff;
+    background-color: rgb(70, 66, 66);
+    
+}
+.icon:hover{
+    color: #339AF0;
+    /* color: rgb(58, 87, 148); */
+}
 .download-btn{
     width: 100px;
 }
@@ -72,4 +90,13 @@ ul{
 }
 .download-btn img:last-child {
   margin-top: 20px;
+}
+.footer-input{
+    border: none;
+    padding: 10px;
+    width: 75%;
+    border-bottom: 2px solid gray;
+    margin-top: 10px;
+    outline: none;
+    transition: 1s;
 }

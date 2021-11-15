@@ -3,11 +3,12 @@
     margin: 20px;
     height: 250px;
     transition: 0.5s;
-    /* background-color: lightseagreen; */
-}
-.card:hover{
     box-shadow: 5px  5px 10px lightgray;
+    border-radius: 30px;
 }
+/* .card:hover{
+    box-shadow: 5px  5px 10px lightgray;
+} */
 .homeProduct-container{
     /* background-color: #EEEFE9; */
     background-color: #FFFEF9;

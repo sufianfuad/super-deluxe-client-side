@@ -1,5 +1,8 @@
 import React from 'react';
-
+//react font awesome import
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars } from '@fortawesome/free-solid-svg-icons';
+// import
 import { Switch, Route, Link, useRouteMatch } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 import AddProducts from '../../AddProducts/AddProducts';
@@ -9,7 +12,7 @@ import Reviews from '../../Reviews/Reviews';
 import MakeAdmin from '../MakeAdmin/MakeAdmin';
 import ManageProducts from '../ManageProducts/ManageProducts';
 import ManageAllOrder from '../ManageAllOrder/ManageAllOrder';
-// import
+
 //css
 import './Dashboard.css';
 import AdminRoute from '../../Login/AdminRoute/AdminRoute';
@@ -17,14 +20,15 @@ const Dashboard = () => {
     const { path, url } = useRouteMatch();
 
     const { user, admin, logOut } = useAuth();
-
+    // react font awesome
+    const dashIcon = <FontAwesomeIcon icon={faBars} />
     return (
         <div>
             <div className="dashboard-container">
                 <div className="row container">
                     <div className="col-md-3 col-lg-3 col-sm-12">
                         <div className="dashboard">
-                            <h4 className="pt-5">Dashboard</h4>
+                            <h4 className="pt-5 fw-bold"><span className="dashIcon me-2 px-1">{dashIcon}</span>Dashboard</h4>
                             <div className="dash-btn-holder">
                                 <Link to="/">
                                     <button className="btn-visit-front">Visit Site</button>

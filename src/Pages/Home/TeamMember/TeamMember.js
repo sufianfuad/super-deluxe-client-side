@@ -31,7 +31,7 @@ const TeamMember = () => {
     return (
         <section className="team">
             <div className="heading-title text-center">
-                <p><span className="team-color">Team</span></p>
+                <p className="products-title"><span className="team-color">Team</span></p>
                 <h1>
                     Our Company Most Valuable People
                     <span className="dot-color">.</span>

@@ -5,6 +5,7 @@
     transition: 0.5s;
     border-radius: 10px;
     background-color: #009E83;
+    /* background-color: #2bacb1; */
     box-shadow: 5px 8px 5px #2A454E;
     
 }
@@ -29,6 +30,7 @@
    color: #f0f0f0;
 }
 .purchase-btn{
+    font-weight: bold;
     color: #f0f0f0;
     background-color: #1A2E35;
     /* background-color: #2A454E; */

@@ -1,5 +1,12 @@
 import React from 'react';
 
+//react font awesome
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+    faFacebookSquare, faInstagram, faLinkedinIn, faTwitter
+} from '@fortawesome/free-brands-svg-icons';
+import { faHandPointRight, faPhoneAlt } from '@fortawesome/free-solid-svg-icons';
+
 import appStore from '../../../images/logo/app-store.png';
 import playStore from '../../../images/logo/play-store.png';
 //css
@@ -12,7 +19,7 @@ const Footer = () => {
                     <div className="col-lg-3 col-md-3 col-sm-12">
                         <div className="footer-menu">
                             <div>
-                                <h4>Our PartnerShip</h4>
+                                <h3>Our PartnerShip</h3>
                                 {/* package lists */}
                                 <ul>
                                     <li><a href="/home" className="menu">Airmate Group</a></li>
@@ -36,7 +43,7 @@ const Footer = () => {
                                 </p>
                             </div>
                             <div>
-                                <input className="p-1 mb-2" type="text" placeholder="Enter Your Mail" />
+                                <input className="p-2 mb-2 footer-input" type="text" placeholder="Enter Your Mail" />
                                 <br />
                                 <button className="btn px-3 py-2 mb-2 subs-btn">Subscribed</button>
                             </div>
@@ -45,15 +52,29 @@ const Footer = () => {
                     <div className="col-lg-3 col-md-3 col-sm-12">
                         {/* footer contact */}
                         <div className="footer-menu">
-                            <h4>Contact Us</h4>
+                            <h3>Contact Us</h3>
                             <div className="contact-info">
                                 <h6>Always 24hr Online service</h6>
                                 <p><small>On a hot summer afternoon,dry winds keeps knocking on my room door - Mary Josephine </small></p>
-                                <p>Phone: +012345657</p>
-                                <p>Email: <strong>super.deluxe44@gmail.com</strong></p>
-                            </div>
-                            <div>
 
+                                <p className="mt-2"><span className="icons me-2"><FontAwesomeIcon icon={faPhoneAlt} /></span>Phone: +012345657</p>
+
+                                <p>Email: <strong>super.deluxe44@gmail.com</strong></p>
+                                <h6><span className="follow-icon"><FontAwesomeIcon icon={faHandPointRight} /></span> Follow Us</h6>
+                            </div>
+                            <div className="icons-container d-flex">
+                                <div className="icon">
+                                    <FontAwesomeIcon icon={faLinkedinIn} />
+                                </div>
+                                <div className="icon">
+                                    <FontAwesomeIcon icon={faTwitter} />
+                                </div>
+                                <div className="icon">
+                                    <FontAwesomeIcon icon={faFacebookSquare} />
+                                </div>
+                                <div className="icon">
+                                    <FontAwesomeIcon icon={faInstagram} />
+                                </div>
                             </div>
                         </div>
 

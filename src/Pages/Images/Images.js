@@ -1,0 +1,13 @@
+
+const img1 = "https://i.ibb.co/QYGq0FG/img1.jpg"
+const img2 = "https://i.ibb.co/x8Kzcvf/img2.png"
+const img3 = "https://i.ibb.co/hK46qHj/img4.jpg"
+const img4 = "https://i.ibb.co/1mzj8NL/img10.jpg"
+const img5 = "https://i.ibb.co/nbZCGYr/img5.jpg"
+const img6 = "https://i.ibb.co/t3cDHnN/img6.jpg"
+const img7 = "https://i.ibb.co/m9MZyV7/img11.jpg"
+const img8 = "https://i.ibb.co/PmV8XnQ/img7.jpg"
+const img9 = "https://i.ibb.co/z5g1f4p/img9.jpg"
+const img10 = "https://i.ibb.co/JCL0Sq1/img12.jpg"
+const img11 = "https://i.ibb.co/vcq4npZ/img3.jpg"
+const img12 = "https://i.ibb.co/XjGJxvL/img7.jpg"

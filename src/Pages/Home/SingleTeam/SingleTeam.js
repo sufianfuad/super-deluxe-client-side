@@ -19,7 +19,7 @@ const SingleTeam = ({ team }) => {
                 </div>
                 <div className="text-box">
                     <h4>{name}</h4>
-                    <p>{position}</p>
+                    <p><span className="position">{position}</span></p>
                 </div>
                 <div className="teamIcon-container">
                     <div className="teamIcon">

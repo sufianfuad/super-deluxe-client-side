@@ -1,14 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import { Table } from 'react-bootstrap';
 import useAuth from '../../hooks/useAuth';
-
+//react font awesome
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 //css
 import './MyOrders.css';
 const MyOrders = () => {
     const { user } = useAuth();
 
     const [order, setOrder] = useState([]);
-
+    // react font awesome
+    const dltIcon = <FontAwesomeIcon icon={faTrashAlt} />
     useEffect(() => {
         fetch(`https://stormy-brook-79826.herokuapp.com/orders/${user?.email}`)
             .then(res => res.json())
@@ -64,7 +67,7 @@ const MyOrders = () => {
                                         <td><span className="status">{pd?.status}</span></td>
                                         <button
                                             onClick={() => handleDeleteOrder(pd._id)}
-                                            className="btn btn-danger delete-btn px-3 py-2">Delete</button>
+                                            className="btn btn-danger delete-btn px-3 py-2"><span className="icon px-1">{dltIcon}</span></button>
                                         {/* <Link to={`/orders/update/${order._id}`}>
                                             <button
                                                 onClick=""

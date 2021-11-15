@@ -1,9 +1,14 @@
 import React from 'react';
-
+//react font awesome
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 //css
 import './TableRow.css';
 const TableRow = ({ products, index }) => {
+
     const { name, description, price, _id } = products;
+    // react font awesome
+    const dltIcon = <FontAwesomeIcon icon={faTrashAlt} />
 
     //DELETE order
     const handleDeleteProduct = (event, id) => {
@@ -16,13 +21,11 @@ const TableRow = ({ products, index }) => {
                 .then((res) => res.json())
                 .then((result) => {
                     if (result) {
-                        event.target.parentNode.style.display = "none";
+                        event.target.parentNode.style.display = 'none';
                     }
                 });
         }
-
     }
-
     return (
         <tr>
             <td>{index + 1}</td>
@@ -34,7 +37,7 @@ const TableRow = ({ products, index }) => {
                     onClick={(event) => handleDeleteProduct(event, _id)}
                     className="btn-delete"
                 >
-                    Delete
+                    <span className="icon px-1">{dltIcon}</span>
                 </button>
             </td>
         </tr>

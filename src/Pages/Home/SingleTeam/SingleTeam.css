@@ -28,7 +28,7 @@
   z-index: 10;
 }
 .text-box {
-  padding: 15px 0;
+  padding: 13px 0;
 }
 .text-box h4 {
   font-size: 30px;
@@ -41,22 +41,24 @@
   color: #5A04DE;
   font-weight: 500;
 }
+.position{
+  font-weight: bold;
+  font-size: 16px;
+}
 .teamIcon-container{
   display: flex;
   /* align-items: center; */
   justify-content: center;
 }
  .teamIcon{
- margin: 5px;
-   padding: 0px 8px;
+  margin: 5px;
+  padding: 0px 8px;
   font-size: 30px;
   border-radius: 50px;
   cursor: pointer;
   color: rgb(58, 87, 148);
   background-color:#f0f0f0;
-  
 } 
- 
 .teamIcon:hover{
   color: rgb(70, 66, 66);
 }

@@ -1,19 +1,23 @@
 import React, { useEffect, useState } from 'react';
 import { Table } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 
 //css
 import './ManageAllOrder.css';
 
 const ManageAllOrder = () => {
     const [allOrders, setAllOrders] = useState([]);
-
+    //status state 
     const [status, setStatus] = useState('');
+    //order state
     const [orderId, setOrderId] = useState('');
 
     const { register, handleSubmit } = useForm();
-
+    // react font awesome
+    const dltIcon = <FontAwesomeIcon icon={faTrashAlt} />
 
     const handleOrderId = id => {
         setOrderId(id);
@@ -25,7 +29,7 @@ const ManageAllOrder = () => {
             .then(data => setAllOrders(data))
     }, []);
     console.log(allOrders);
-
+    //update order
     const onSubmit = data => {
         console.log(data, orderId)
         fetch(`https://stormy-brook-79826.herokuapp.com/updateStatus/${orderId}`, {
@@ -98,12 +102,7 @@ const ManageAllOrder = () => {
                                     </td>
                                     <button
                                         onClick={() => handleDeleteOrder(order?._id)}
-                                        className="btn btn-danger delete-btn px-3 py-2">Delete</button>
-                                    <Link to={`/orders/update/${order._id}`}>
-                                        <button
-                                            className="btn btn-danger delete-btn px-3 py-2">Update</button>
-                                    </Link>
-
+                                        className="btn btn-danger delete-btn px-3 py-2"><span className="icon px-1">{dltIcon}</span></button>
                                 </tr>
                             </tbody>
                         ))}

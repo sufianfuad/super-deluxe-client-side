@@ -6,6 +6,7 @@ import './AddProducts.css';
 import addProduct from '../../images/login-banner/addProduct.jpg';
 const AddProducts = () => {
 
+  //from react hook useFrom
   const { register,
     handleSubmit,
     reset,

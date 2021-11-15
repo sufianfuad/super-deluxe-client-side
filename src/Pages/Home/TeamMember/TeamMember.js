@@ -7,6 +7,7 @@ import jhon from "../../../images/team/team_03.jpg";
 import SingleTeam from '../SingleTeam/SingleTeam';
 import './TeamMember.css';
 
+// data for team member
 const teams = [
     {
         id: 11,

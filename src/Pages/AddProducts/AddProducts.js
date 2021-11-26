@@ -25,7 +25,7 @@ const AddProducts = () => {
   };
   return (
     <div className="addProduct-container">
-      <h1 className="mt-5 text-center heading-title">Please Add Products<span className="dot-color">.</span></h1>
+      <h1 className="mt-5 text-center heading-title">Please Add Product<span className="dot-color">.</span></h1>
       <div className="container">
         <div className="row d-flex align-items-center">
           <div className="col-md-6 col-lg-6 col-sm-12">

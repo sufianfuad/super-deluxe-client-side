@@ -76,7 +76,6 @@ const AddProducts = () => {
           </div>
         </div>
       </div>
-
     </div>
   );
 };

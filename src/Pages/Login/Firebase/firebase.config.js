@@ -9,10 +9,3 @@ const firebaseConfig = {
 };
 
 export default firebaseConfig;
-
-// "AIzaSyBrdyZrZCEvUee1gcyEJEMf7IlBFuIrRkw"
-// "super-deluxe-2616e.firebaseapp.com"
-// "super-deluxe-2616e"
-// "super-deluxe-2616e.appspot.com"
-// "26607697530"
-// "1:26607697530:web:01fa3400de09ff2f2e85c3"
